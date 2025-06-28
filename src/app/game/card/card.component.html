@@ -1,0 +1,49 @@
+@if (isImageCard()) {
+  <div #cardDiv
+  (click) = "onClick()"
+  [style.background-color] = "currentColor()"
+    [ngClass]="{
+      'card-open': isFlipped() && !isFound(),
+      'card-closed': !isFlipped() && !isFound(),
+      'card-found': isFound()
+    }"
+  ><img [src]="content()"></div>
+}
+@else {
+  <div #cardDiv
+    (click) = "onClick()"
+    [style.background-color] = "currentColor()"
+    [ngClass]="{
+      'card-open': isFlipped() && !isFound(),
+      'card-closed': !isFlipped() && !isFound(),
+      'card-found': isFound()
+    }"
+  >{{ content() }}</div>
+
+}
+
+<!-- <div *ngIf="isImageCard(); else textCard"
+     #cardDiv
+     (click)="onClick()"
+     [ngClass]="{
+        'card-open': isFlipped() && !isFound(),
+        'card-closed': !isFlipped() && !isFound(),
+        'card-found': isFound()
+     }"
+>
+  <img [src]="content()" class="card-image"/>
+</div>
+
+<ng-template #textCard>
+  <div
+    #cardDiv
+    (click)="onClick()"
+    [ngClass]="{
+      'card-open': isFlipped() && !isFound(),
+      'card-closed': !isFlipped() && !isFound(),
+      'card-found': isFound()
+    }"
+  >
+    {{ content() }}
+  </div>
+</ng-template> -->

@@ -1,0 +1,15 @@
+<p>board works!</p>
+<div class="game-info">
+  
+</div>
+<div *ngFor="let row of content" class="card-row">
+  <app-card-component
+    *ngFor="let card of row"
+    [content]="card"
+    [isImageCard]="false"
+    (cardClicked)="makeMove($event)"
+    >
+  </app-card-component>
+</div>
+
+

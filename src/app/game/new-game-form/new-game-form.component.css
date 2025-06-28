@@ -1,0 +1,18 @@
+.new-game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+input {
+  height: 10px;
+  width: 20vh;
+  padding: 1px;
+  border-width: 1px;
+}
+.newGameButton {
+  padding: 1px;
+  background-color: grey;
+  border-color: black;
+  user-select: none;
+}

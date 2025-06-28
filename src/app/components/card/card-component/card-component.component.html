@@ -1,0 +1,20 @@
+@if (isImageCard()) {
+  <div #cardDiv
+  (click) = "onClick()"
+    [ngClass]="{
+    'card-open': isFlipped && !isFound,
+    'card-closed': !isFlipped && !isFound,
+    'card-found': isFound
+  }"><img src="{{ content() }}"></div>
+}
+@else {
+  <div #cardDiv (click) = "onClick()"
+    [ngClass]="{
+    'card-open': isFlipped && !isFound,
+    'card-closed': !isFlipped && !isFound,
+    'card-found': isFound
+    }"
+  >{{ content() }}</div>
+
+}
+

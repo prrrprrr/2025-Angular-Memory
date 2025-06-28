@@ -1,0 +1,28 @@
+<div class="game-board">
+  @for (row of content(); track row) {
+    <div class="card-row">
+      @for (card of row; track card) {
+        <app-card
+            [content]="card"
+            [isImageCard]="isImageCard()"
+            [colors]="colors()"
+            (cardClicked)="makeMove($event)"
+          >
+        </app-card>
+      }
+    </div>
+  }
+  <!-- <div *ngFor="let row of content()" class="card-row">
+    <app-card
+        *ngFor="let card of row"
+        [content]="card"
+        [isImageCard]="isImageCard()"
+        [colors]="colors()"
+        (cardClicked)="makeMove($event)"
+      >
+    </app-card>
+  </div> -->
+</div>
+
+
+

@@ -1,0 +1,7 @@
+
+<h1>Top 5</h1>
+<ol>
+@for (highscore of highscores; track highscore.name) {
+  <li>{{highscore.name}}: {{highscore.score}}</li>
+}
+</ol>

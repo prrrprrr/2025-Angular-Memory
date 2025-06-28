@@ -1,0 +1,7 @@
+.sidebar {
+  display: flex;
+  flex-direction:column;
+  flex-grow: 2;
+  align-items: center;
+  background-color: grey;
+}

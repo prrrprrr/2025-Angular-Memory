@@ -1,0 +1,36 @@
+<form action="new-game" class="new-game-form">
+  <label for="cardType">Card Type:
+    <select id="cardType" name="cardType" [(ngModel)]= "cardType">
+      <option value="Letters">Letters</option>
+      <option value="Dogs">Dogs</option>
+      <option value="Images">Images</option>
+    </select>
+  </label>
+
+  <label>
+    <select name="size" id="size" [(ngModel)]="size">
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  </label>
+
+  <label for="color-closedcard">color closedcard:
+    <input type="color" id="color-closedcard" name="color-closedcard" [(ngModel)]="colorClosedCard">
+  </label>
+
+  <label for="color-opencard">color opencard:
+      <input type="color" id="color-opencard" name="color-opencard" [(ngModel)]="colorOpenCard">
+  </label>
+
+  <label for="color-foundcard">color foundcard:
+    <input type="color" id="color-foundcard" name="color-foundcard" [(ngModel)]="colorFoundCard">
+  </label>
+  <div class="newGameButton" (click) = onSubmit()>New Game</div>
+</form>
+
+<p>{{ colorClosedCard }}</p>
+<p>{{ colorOpenCard }}</p>
+<p>{{ colorFoundCard }}</p>
+<p>{{ cardType }}</p>
+<p>{{ size }}</p>
