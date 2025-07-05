@@ -1,7 +1,8 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { BehaviorSubject, interval, isEmpty, Subscription } from 'rxjs';
-import { ImageApiService } from '../imageApi/image-api.service';
+import { ImageApiService } from './imageApi/image-api.service';
+import { TimerService } from './timerService/timer.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,13 +15,15 @@ export class GameService {
   public totalPairs = computed( () => Math.floor(this.size()*this.size()/2))
   public colors = signal(['red','green','blue'])
   public letters: string[] = ['A',"B","C","D","E","F","G","H","I","J","K","L","M","N","O","P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  public timeTaken = signal(0)
 
   public newGameSubject$ = new BehaviorSubject<string[][]>([]);
   public colorSubject$ = new BehaviorSubject<string[]>([]);
   public pairsFoundSubject$ = new BehaviorSubject<number>(this.pairsFound());
   public turnsTakenSubject$ = new BehaviorSubject<number>(this.turnsTaken());
   public startTimerSubject$ = new BehaviorSubject<boolean>(false);
-  timeTaken = signal(0)
+  public timerSubject$ = new BehaviorSubject<number>(this.timeTaken());
+  public timerService = inject(TimerService)
   public apiService = inject(ImageApiService)
 
   constructor() {
@@ -70,8 +73,9 @@ export class GameService {
       this.cards[0].openCard()
     }
     if (this.isGameDone()) {
-      alert("Game Over")
       this.startTimerSubject$.next(false)
+      alert("Game Over")
+
     }
 
   }

@@ -1,5 +1,5 @@
 import { Component, signal, inject } from '@angular/core';;
-import { TimerService } from './timerService/timer.service';
+import { TimerService } from '../../service/timerService/timer.service';
 import { Subscription } from 'rxjs';
 
 @Component({
