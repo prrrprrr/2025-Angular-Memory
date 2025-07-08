@@ -6,7 +6,6 @@ import { GameService } from '../game.service';
   providedIn: 'root'
 })
 export class TimerService {
-
   private gameService = inject(GameService)
 
   public timeElapsed = signal(0)
