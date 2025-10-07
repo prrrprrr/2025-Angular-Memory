@@ -7,6 +7,10 @@ import { TimerService } from './timerService/timer.service';
   providedIn: 'root'
 })
 export class GameService {
+  public timerService = inject(TimerService)
+  public apiService = inject(ImageApiService)
+
+
   public size = signal(4)
   public cardType = signal('Letters')
   public cards: CardComponent[] = []
@@ -15,17 +19,14 @@ export class GameService {
   public totalPairs = computed( () => Math.floor(this.size()*this.size()/2))
   public colors = signal(['red','green','blue'])
   public letters: string[] = ['A',"B","C","D","E","F","G","H","I","J","K","L","M","N","O","P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-  public timeTaken = signal(0)
-
+ 
   public newGameSubject$ = new BehaviorSubject<string[][]>([]);
   public colorSubject$ = new BehaviorSubject<string[]>([]);
   public pairsFoundSubject$ = new BehaviorSubject<number>(this.pairsFound());
   public turnsTakenSubject$ = new BehaviorSubject<number>(this.turnsTaken());
-  public startTimerSubject$ = new BehaviorSubject<boolean>(false);
-  public timerSubject$ = new BehaviorSubject<number>(this.timeTaken());
-  public timerService = inject(TimerService)
-  public apiService = inject(ImageApiService)
+  
 
+  
   constructor() {
     this.startNewGame()
   }
@@ -43,14 +44,14 @@ export class GameService {
     this.colors.set(colors)
     this.pairsFound.set(0)
     this.turnsTaken.set(0)
-    this.timeTaken.set(0)
     this.cards = []
+    this.timerService.resetTimer()
 
   }
 
   makeMove(card: CardComponent) {
     if (this.turnsTaken() == 0 && this.cards.length == 0 ) {
-      this.startTimerSubject$.next(true)
+      this.timerService.startTimer()
     }
     if (this.cards.length == 2) {
       this.cards[0].closeCard()
@@ -73,7 +74,7 @@ export class GameService {
       this.cards[0].openCard()
     }
     if (this.isGameDone()) {
-      this.startTimerSubject$.next(false)
+      this.timerService.stopTimer()
       alert("Game Over")
 
     }

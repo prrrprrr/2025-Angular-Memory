@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { GameService } from '../service/game.service';
 
 @Component({
   selector: 'app-new-game-form',
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './new-game-form.component.html',
   styleUrl: './new-game-form.component.css'
 })

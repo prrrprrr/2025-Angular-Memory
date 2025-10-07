@@ -4,11 +4,11 @@ import { GameService } from "../service/game.service";
 import { HighscoresComponent } from "../highscores/highscores.component";
 import { NewGameFormComponent } from '../new-game-form/new-game-form.component';
 import { Subscription } from 'rxjs';
-import { TimerComponent } from './timer/timer.component';
+// import { TimerComponent } from './timer/timer.component';
 
 @Component({
   selector: 'app-game',
-  imports: [BoardComponent, HighscoresComponent, NewGameFormComponent, TimerComponent],
+  imports: [BoardComponent, HighscoresComponent, NewGameFormComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
@@ -19,14 +19,12 @@ export class GameComponent {
   private timerSub!: Subscription
   pairsFound = signal(0)
   turnsTaken = signal(0)
-  timeTaken = signal(0)
   totalPairs = this.gameService.totalPairs
   colors = this.gameService.colors()
 
   ngOnInit(){
     this.turnSub = this.gameService.turnsTakenSubject$.subscribe((value) => this.turnsTaken.set(value));
     this.pairSub = this.gameService.pairsFoundSubject$.subscribe((value) => this.pairsFound.set(value));
-    this.timerSub = this.gameService.timerSubject$.subscribe((value) => this.timeTaken.set(value));
   }
 
   ngOnDestroy(){
