@@ -4,12 +4,15 @@
     align-items: center;
     background-color: var(--card-closed-color);
     flex-grow: 1;
-    height: 10vh;
+    height: 14vh;
     width: 10vh;
     font-size: 0px;
     overflow: hidden;
     position: relative;
     content-visibility: hidden;
+    border-radius: 5%;
+    border: 3px solid black;
+
 }
 :hover { background-color: beige;}
 
@@ -18,12 +21,15 @@
     justify-content: center;
     align-items: center;
     background-color: var(--card-open-color);
-    height: 10vh;
+    height: 14vh;
     width: 10vh;
     user-select: none;
     pointer-events: none;
     overflow: hidden;
     position: relative;
+    border-radius: 5%;
+    border: 3px solid black;
+
 }
 .card-found {
 
@@ -31,13 +37,16 @@
     justify-content: center;
     align-items: center;
     background-color: var(--card-found-color);
-    height: 10vh;
+    height: 14vh;
     width: 10vh;
     user-select: none;
     font-size: 10;
     pointer-events: none;
     overflow: hidden;
     position: relative;
+    border-radius: 5%;
+    border: 3px solid black;
+
 }
 .card-container {
   width: 100%;

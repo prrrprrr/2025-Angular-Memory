@@ -1,1 +1,23 @@
-<p>header works!</p>
+<div class="header">
+  <div class="logo">
+    <img ngSrc="/logo.png" width="100" height="100">
+  </div>
+
+  <div class="navbar">
+    <nav>
+      <a routerLink="/">Home</a>
+      <a routerLink="/game">Memory</a>
+    </nav>
+  </div>
+
+  <div class="profile-info">
+    <nav>
+      <!-- TODO if user is logged in show logout -->
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </nav>
+    <img ngSrc="/profile.png" width="40" height="40">
+  </div>
+</div>
+
+

@@ -1,7 +1,18 @@
 html,body {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 * {
   outline: none;
+  background-color: #f6e7d2;
+}
+.page {
+  background-color: #f6e7d2;
+  height: 100%;
+}
+app-footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  visibility: collapse;
 }

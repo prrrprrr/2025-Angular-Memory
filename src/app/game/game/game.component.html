@@ -1,16 +1,13 @@
 
 <div class="page-content">
-  <div class="game">
     <div class="game-info">
       <!-- input game info from service -->
-      <app-timer></app-timer>
-      <p>time elapsed {{ timeTaken() }}</p>
-      <p>turns taken {{ turnsTaken() }}</p>
-      <p>pairs found {{ pairsFound() }}/{{ totalPairs() }}</p>
+      <p>time elapsed {{ this.gameService.timerService.timeElapsed() }}</p>
+      <p>turns taken {{ this.gameService.turnsTaken() }}</p>
+      <p>pairs found {{ this.gameService.pairsFound() }}/{{ this.gameService.totalPairs() }}</p>
     </div>
-    <app-board
-    ></app-board>
-  </div>
+
+    <app-board></app-board>
 
   <div class="sidebar">
     <app-highscores></app-highscores>
